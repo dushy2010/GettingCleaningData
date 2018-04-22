@@ -32,10 +32,10 @@ colnames(X) <- features[features_selected[,1],2]
 # with the average of each variable for each activity and each subject.
 colnames(sub_all) <- "subject"
 
-#subject=sub_all$subject
+# subject=sub_all$subject
 combine <- cbind(X, activity, sub_all)
 temp <- group_by(combine,activity, subject)
 final <- summarize_all(temp,funs(mean))
 
 # write final tidy data
-write.table(final, file = "./tidy_data.txt", row.names = FALSE, col.names = TRUE)
+write.table(final, file = "./tidydataset.txt", row.names = FALSE, col.names = TRUE)
